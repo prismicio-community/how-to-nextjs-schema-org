@@ -18,6 +18,10 @@ const routes = [
     type: "author",
     path: "/authors/:uid",
   },
+  {
+    type: "restaurant",
+    path: "/restaurants/:uid",
+  },
 ];
 
 /**

@@ -1,0 +1,78 @@
+{
+  "id": "restaurant",
+  "label": "Restaurant",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "name": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Name",
+          "placeholder": "The restaurant’s name.",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": "A unique ID for the restaurant."
+        }
+      },
+      "featured_image": {
+        "type": "Image",
+        "config": {
+          "label": "Featured Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "menu": {
+        "type": "Link",
+        "config": {
+          "label": "Menu",
+          "placeholder": "A URL to the restaurant’s menu, such as a page or a PDF.",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "address_street": {
+        "type": "Text",
+        "config": {
+          "label": "Street Address",
+          "placeholder": "The restaurant’s street address."
+        }
+      },
+      "address_locality": {
+        "type": "Text",
+        "config": {
+          "label": "Address Locality",
+          "placeholder": "The restaurant’s city."
+        }
+      },
+      "address_region": {
+        "type": "Text",
+        "config": {
+          "label": "Address Region",
+          "placeholder": "The restaurant’s state."
+        }
+      },
+      "address_postal_code": {
+        "type": "Text",
+        "config": {
+          "label": "Address Postal Code",
+          "placeholder": "The restaurant’s postal code."
+        }
+      },
+      "address_country": {
+        "type": "Text",
+        "config": {
+          "label": "Address Country",
+          "placeholder": "The restaurant’s country."
+        }
+      }
+    }
+  }
+}

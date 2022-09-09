@@ -13,7 +13,7 @@ export default function Page({ article, author }) {
       name: prismicH.asText(author.data.name),
       url: new URL(prismicH.asLink(author), "https://example.com"),
     },
-    image: article.data.featured_image.url,
+    image: prismicH.asImageSrc(article.data.featured_image),
     datePublished: article.data.publication_date,
     dateModified: article.last_publication_date,
   };

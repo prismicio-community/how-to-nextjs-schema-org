@@ -1,7 +1,22 @@
 {
   "_cts": {
-    "article": {},
+    "article": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    },
     "author": {
+      "name": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    },
+    "restaurant": {
       "name": {
         "config": {
           "patternType": "HEADING",
