@@ -1,0 +1,13 @@
+{
+  "_cts": {
+    "article": {},
+    "author": {
+      "name": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    }
+  }
+}
