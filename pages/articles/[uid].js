@@ -8,9 +8,11 @@ export default function Page({ article }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
+    headline: prismicH.asText(article.data.title),
     author: {
       "@type": "Person",
       name: prismicH.asText(article.data.author.data.name),
+      // The full URL must be provided, including the website's domain.
       url: new URL(prismicH.asLink(article.data.author), "https://example.com"),
     },
     image: prismicH.asImageSrc(article.data.featured_image),
