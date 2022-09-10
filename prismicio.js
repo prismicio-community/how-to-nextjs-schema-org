@@ -22,6 +22,10 @@ const routes = [
     type: "restaurant",
     path: "/restaurants/:uid",
   },
+  {
+    type: "event",
+    path: "/events/:uid",
+  },
 ];
 
 /**

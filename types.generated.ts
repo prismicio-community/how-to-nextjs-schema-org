@@ -87,6 +87,63 @@ interface AuthorDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type AuthorDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<AuthorDocumentData>, "author", Lang>;
+/** Content for Event documents */
+interface EventDocumentData {
+    /**
+     * Name field in *Event*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: event.name
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    name: prismicT.TitleField;
+    /**
+     * Description field in *Event*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: event.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+    /**
+     * Start Date field in *Event*
+     *
+     * - **Field Type**: Timestamp
+     * - **Placeholder**: *None*
+     * - **API ID Path**: event.start_date
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/timestamp
+     *
+     */
+    start_date: prismicT.TimestampField;
+    /**
+     * End Date field in *Event*
+     *
+     * - **Field Type**: Timestamp
+     * - **Placeholder**: *None*
+     * - **API ID Path**: event.end_date
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/timestamp
+     *
+     */
+    end_date: prismicT.TimestampField;
+}
+/**
+ * Event document from Prismic
+ *
+ * - **API ID**: `event`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EventDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<EventDocumentData>, "event", Lang>;
 /** Content for Restaurant documents */
 interface RestaurantDocumentData {
     /**
@@ -188,12 +245,12 @@ interface RestaurantDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type RestaurantDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<RestaurantDocumentData>, "restaurant", Lang>;
-export type AllDocumentTypes = ArticleDocument | AuthorDocument | RestaurantDocument;
+export type AllDocumentTypes = ArticleDocument | AuthorDocument | EventDocument | RestaurantDocument;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { ArticleDocumentData, ArticleDocument, AuthorDocumentData, AuthorDocument, RestaurantDocumentData, RestaurantDocument, AllDocumentTypes };
+        export type { ArticleDocumentData, ArticleDocument, AuthorDocumentData, AuthorDocument, EventDocumentData, EventDocument, RestaurantDocumentData, RestaurantDocument, AllDocumentTypes };
     }
 }

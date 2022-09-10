@@ -23,6 +23,14 @@
           "blocks": 1
         }
       }
+    },
+    "event": {
+      "name": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
     }
   }
 }
