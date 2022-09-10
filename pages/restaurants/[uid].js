@@ -29,7 +29,15 @@ export default function Page({ restaurant }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </Head>
-      <main>{/* The restaurant page's contents... */}</main>
+      <main>
+        <p>
+          The following schema has been added to the <code>&lt;head&gt;</code>{" "}
+          of this page:
+        </p>
+        <pre>
+          <code>{JSON.stringify(schema, null, 4)}</code>
+        </pre>
+      </main>
     </div>
   );
 }

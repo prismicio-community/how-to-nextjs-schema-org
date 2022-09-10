@@ -3,15 +3,15 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 
 /** @param {import("next").InferGetStaticPropsType<typeof getStaticProps>} */
-export default function Page({ article, author }) {
+export default function Page({ article }) {
   /** @type {import('schema-dts').Article} */
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
     author: {
       "@type": "Person",
-      name: prismicH.asText(author.data.name),
-      url: new URL(prismicH.asLink(author), "https://example.com"),
+      name: prismicH.asText(article.data.author.data.name),
+      url: new URL(prismicH.asLink(article.data.author), "https://example.com"),
     },
     image: prismicH.asImageSrc(article.data.featured_image),
     datePublished: article.data.publication_date,
@@ -26,7 +26,15 @@ export default function Page({ article, author }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </Head>
-      <article>{/* The article's contents... */}</article>
+      <main>
+        <p>
+          The following schema has been added to the <code>&lt;head&gt;</code>{" "}
+          of this page:
+        </p>
+        <pre>
+          <code>{JSON.stringify(schema, null, 4)}</code>
+        </pre>
+      </main>
     </div>
   );
 }
@@ -35,11 +43,12 @@ export default function Page({ article, author }) {
 export async function getStaticProps({ previewData, params }) {
   const client = createClient({ previewData });
 
-  const article = await client.getByUID("article", params.uid);
-  const author = await client.getByUID("author", article.data.author.uid);
+  const article = await client.getByUID("article", params.uid, {
+    fetchLinks: ["author.name"],
+  });
 
   return {
-    props: { article, author },
+    props: { article },
   };
 }
 
