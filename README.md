@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# How To: Prismic with Schema.org
 
-## Getting Started
+Providing search engines metadata about your website’s content allows for rich search results sourced from your website. Rich results are typically prioritized over webpage results and often allow searchers to act directly on them, such as saving an event or viewing a map.
 
-First, run the development server:
+[Schema.org][schema-org] defines standardized sets of attributes for almost any kind of metadata you want to share with search engines.
 
-```bash
-npm run dev
-# or
-yarn dev
+This example project demonstrates a few kinds of schemas to show how you can connect your website’s content to whichever schema you need.
+
+[**See the full guide on Prismic's documentation website.**](#)
+
+## 🚀 Quick Start
+
+```
+npx degit prismicio-community/how-to-nextjs-schema-org how-to-nextjs-schema-org
+cd how-to-nextjs-schema-org
+npx @slicemachine/init
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The commands will do the following:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. Start a new Next.js project using this example.
+2. Ask you to log in to Prismic or [create an account][prismic-sign-up].
+3. Create a new Prismic content repository with sample content.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+When you're ready to start your project, run the following command:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+npm run dev
+```
 
-## Learn More
+To learn more about the example, [see the full guide on Prismic's documentation website.](#)
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+Copyright 2013-2022 Prismic <contact@prismic.io> (https://prismic.io)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-## Deploy on Vercel
+http://www.apache.org/licenses/LICENSE-2.0
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[prismic]: https://prismic.io/
+[prismic-sign-up]: https://prismic.io/dashboard/signup
+[nextjs]: https://nextjs.org/
+[schema-org]: https://schema.org/
