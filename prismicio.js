@@ -26,6 +26,10 @@ const routes = [
     type: "event",
     path: "/events/:uid",
   },
+  {
+    type: "faqs",
+    path: "/faqs/:uid",
+  },
 ];
 
 /**
