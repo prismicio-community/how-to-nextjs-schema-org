@@ -19,10 +19,6 @@ const routes = [
     path: "/authors/:uid",
   },
   {
-    type: "restaurant",
-    path: "/restaurants/:uid",
-  },
-  {
     type: "event",
     path: "/events/:uid",
   },

@@ -205,113 +205,12 @@ export interface FaqsDocumentDataQuestionsItem {
  * @typeParam Lang - Language API ID of the document.
  */
 export type FaqsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<FaqsDocumentData>, "faqs", Lang>;
-/** Content for Restaurant documents */
-interface RestaurantDocumentData {
-    /**
-     * Name field in *Restaurant*
-     *
-     * - **Field Type**: Title
-     * - **Placeholder**: The restaurant’s name.
-     * - **API ID Path**: restaurant.name
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-     *
-     */
-    name: prismicT.TitleField;
-    /**
-     * Featured Image field in *Restaurant*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: restaurant.featured_image
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    featured_image: prismicT.ImageField<never>;
-    /**
-     * Menu field in *Restaurant*
-     *
-     * - **Field Type**: Link
-     * - **Placeholder**: A URL to the restaurant’s menu, such as a page or a PDF.
-     * - **API ID Path**: restaurant.menu
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-     *
-     */
-    menu: prismicT.LinkField;
-    /**
-     * Street Address field in *Restaurant*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: The restaurant’s street address.
-     * - **API ID Path**: restaurant.address_street
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    address_street: prismicT.KeyTextField;
-    /**
-     * Address Locality field in *Restaurant*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: The restaurant’s city.
-     * - **API ID Path**: restaurant.address_locality
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    address_locality: prismicT.KeyTextField;
-    /**
-     * Address Region field in *Restaurant*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: The restaurant’s state.
-     * - **API ID Path**: restaurant.address_region
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    address_region: prismicT.KeyTextField;
-    /**
-     * Address Postal Code field in *Restaurant*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: The restaurant’s postal code.
-     * - **API ID Path**: restaurant.address_postal_code
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    address_postal_code: prismicT.KeyTextField;
-    /**
-     * Address Country field in *Restaurant*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: The restaurant’s country.
-     * - **API ID Path**: restaurant.address_country
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    address_country: prismicT.KeyTextField;
-}
-/**
- * Restaurant document from Prismic
- *
- * - **API ID**: `restaurant`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type RestaurantDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<RestaurantDocumentData>, "restaurant", Lang>;
-export type AllDocumentTypes = ArticleDocument | AuthorDocument | EventDocument | FaqsDocument | RestaurantDocument;
+export type AllDocumentTypes = ArticleDocument | AuthorDocument | EventDocument | FaqsDocument;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { ArticleDocumentData, ArticleDocument, AuthorDocumentData, AuthorDocument, EventDocumentData, EventDocument, FaqsDocumentData, FaqsDocumentDataQuestionsItem, FaqsDocument, RestaurantDocumentData, RestaurantDocument, AllDocumentTypes };
+        export type { ArticleDocumentData, ArticleDocument, AuthorDocumentData, AuthorDocument, EventDocumentData, EventDocument, FaqsDocumentData, FaqsDocumentDataQuestionsItem, FaqsDocument, AllDocumentTypes };
     }
 }

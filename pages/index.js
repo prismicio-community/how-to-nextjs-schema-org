@@ -3,7 +3,7 @@ import { PrismicLink, PrismicText } from "@prismicio/react";
 import { createClient } from "../prismicio";
 
 /** @param {import("next").InferGetStaticPropsType<typeof getStaticProps>} */
-export default function Page({ articles, events, restaurants, faqs }) {
+export default function Page({ articles, events, faqs }) {
   return (
     <div>
       <p>See the following pages for examples:</p>
@@ -28,16 +28,6 @@ export default function Page({ articles, events, restaurants, faqs }) {
             </li>
           );
         })}
-        {restaurants.map((restaurant) => {
-          return (
-            <li key={restaurant.id}>
-              Restaurant:{" "}
-              <PrismicLink document={restaurant}>
-                <PrismicText field={restaurant.data.name} />
-              </PrismicLink>
-            </li>
-          );
-        })}
         {faqs.map((faq) => {
           return (
             <li key={faq.id}>
@@ -57,14 +47,13 @@ export default function Page({ articles, events, restaurants, faqs }) {
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
-  const [articles, events, restaurants, faqs] = await Promise.all([
+  const [articles, events, faqs] = await Promise.all([
     client.getAllByType("article"),
     client.getAllByType("event"),
-    client.getAllByType("restaurant"),
     client.getAllByType("faqs"),
   ]);
 
   return {
-    props: { articles, events, restaurants, faqs },
+    props: { articles, events, faqs },
   };
 }
