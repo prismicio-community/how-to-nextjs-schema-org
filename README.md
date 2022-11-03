@@ -6,7 +6,7 @@ Providing search engines metadata about your website’s content allows for rich
 
 This example project demonstrates a few kinds of schemas to show how you can connect your website’s content to whichever schema you need.
 
-[**See the full guide on Prismic's documentation website.**](#)
+[**See the full guide on Prismic's documentation website.**](https://prismic.io/docs/schema-org-nextjs)
 
 ## 🚀 Quick Start
 
