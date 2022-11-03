@@ -55,6 +55,6 @@ export async function getStaticPaths() {
 
   return {
     paths: faqs.map((faq) => prismicH.asLink(faq)),
-    fallback: true,
+    fallback: false,
   };
 }
