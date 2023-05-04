@@ -13,7 +13,7 @@ This example project demonstrates a few kinds of schemas to show how you can con
 ```
 npx degit prismicio-community/how-to-nextjs-schema-org how-to-nextjs-schema-org
 cd how-to-nextjs-schema-org
-npx @slicemachine/init
+npx @slicemachine/init@latest
 ```
 
 The commands will do the following:
