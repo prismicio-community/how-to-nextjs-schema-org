@@ -1,0 +1,5 @@
+{
+  "repositoryName": "how-to-schema-org",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./src/slices"]
+}

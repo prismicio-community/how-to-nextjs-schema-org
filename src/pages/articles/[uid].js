@@ -1,6 +1,7 @@
 import Head from "next/head";
-import * as prismicH from "@prismicio/helpers";
-import { createClient } from "../../prismicio";
+import * as prismic from "@prismicio/client";
+
+import { createClient } from "@/prismicio";
 
 /** @param {import("next").InferGetStaticPropsType<typeof getStaticProps>} */
 export default function Page({ article }) {
@@ -8,14 +9,14 @@ export default function Page({ article }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: prismicH.asText(article.data.title),
+    headline: prismic.asText(article.data.title),
     author: {
       "@type": "Person",
-      name: prismicH.asText(article.data.author.data.name),
+      name: prismic.asText(article.data.author.data.name),
       // The full URL must be provided, including the website's domain.
-      url: new URL(prismicH.asLink(article.data.author), "https://example.com"),
+      url: new URL(prismic.asLink(article.data.author), "https://example.com"),
     },
-    image: prismicH.asImageSrc(article.data.featured_image),
+    image: prismic.asImageSrc(article.data.featured_image),
     datePublished: article.data.publication_date,
     dateModified: article.last_publication_date,
   };
@@ -61,7 +62,7 @@ export async function getStaticPaths() {
   const articles = await client.getAllByType("article");
 
   return {
-    paths: articles.map((article) => prismicH.asLink(article)),
+    paths: articles.map((article) => prismic.asLink(article)),
     fallback: false,
   };
 }

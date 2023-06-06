@@ -1,0 +1,57 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "simple"
+    },
+    "title": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "heading1",
+          "content": {
+            "text": "Happily"
+          }
+        }
+      ]
+    },
+    "questions": {
+      "__TYPE__": "GroupContentType",
+      "value": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": [
+            [
+              "question",
+              {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                  {
+                    "type": "heading1",
+                    "content": {
+                      "text": "Writer"
+                    }
+                  }
+                ]
+              }
+            ],
+            [
+              "answer",
+              {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "content": {
+                      "text": "Veniam minim aliqua nulla qui ad ex ea amet cillum esse laborum. Mollit non ex cillum pariatur incididunt cillum quis sunt incididunt quis esse esse dolor ea. Ea dolore ex proident eu."
+                    }
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    }
+  }
+]

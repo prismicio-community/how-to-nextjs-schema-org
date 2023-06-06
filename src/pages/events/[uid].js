@@ -1,18 +1,18 @@
 import Head from "next/head";
-import * as prismicH from "@prismicio/helpers";
-import { createClient } from "../../prismicio";
+import * as prismic from "@prismicio/client";
+
+import { createClient } from "@/prismicio";
 
 /** @param {import("next").InferGetStaticPropsType<typeof getStaticProps>} */
-export default function Page({ faqs }) {
-  /** @type {import('schema-dts').FAQPage} */
+export default function Page({ event }) {
+  /** @type {import('schema-dts').Event} */
   const schema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.data.questions.map((question) => ({
-      "@type": "Question",
-      name: prismicH.asText(question.question),
-      acceptedAnswer: prismicH.asHTML(question.answer),
-    })),
+    "@type": "Event",
+    name: prismic.asText(event.data.name),
+    description: event.data.description,
+    startDate: event.data.start_date,
+    endDate: event.data.end_date,
   };
 
   return (
@@ -40,10 +40,10 @@ export default function Page({ faqs }) {
 export async function getStaticProps({ previewData, params }) {
   const client = createClient({ previewData });
 
-  const faqs = await client.getByUID("faqs", params.uid);
+  const event = await client.getByUID("event", params.uid);
 
   return {
-    props: { faqs },
+    props: { event },
   };
 }
 
@@ -51,10 +51,10 @@ export async function getStaticProps({ previewData, params }) {
 export async function getStaticPaths() {
   const client = createClient();
 
-  const faqs = await client.getAllByType("faqs");
+  const events = await client.getAllByType("event");
 
   return {
-    paths: faqs.map((faq) => prismicH.asLink(faq)),
+    paths: events.map((event) => prismic.asLink(event)),
     fallback: false,
   };
 }
